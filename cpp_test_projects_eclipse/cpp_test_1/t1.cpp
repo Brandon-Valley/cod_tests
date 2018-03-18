@@ -1,73 +1,53 @@
-
 #include <iostream>
-#include <string>
-
-#include <typeinfo>
 
 using namespace std;
+//using namespace system;
 
 
-typedef unsigned int uint;
+#include <iostream>
 
-typedef unsigned int uint;
+using namespace std;
+//using namespace system;
 
-void divideAndConquer(const uint num, const uint den, uint& quo)
+
+int isPrime(long num) // Returns 1 (true) if its prime, or 0 (false) if not
 {
-	uint rem = 0;
+	if (num < 2) // 1 is not a prime number
+		return 0;
 
-	if (num == 0 || den == 0)
+	// if it is > 2 and an even number, then it definitely is not a prime
+	if (num > 2 && (num % 2) == 0)
+		return 0;
+
+	//considering the fact all can be divided by 1 and itself,
+	//start checking if there is any other divisor, if found one then no need to continue, it is not a prime
+	for(int i = 2; i < num; i++ )
 	{
-		quo = 0;
-		return;
+		cout << " divisor: " << i << endl;
+		if ( (num % i) == 0) // if it is divisible by i
+		{
+			// a divisor other than 1 and the number itself
+			return 0; // no need for further checking
+		}
 	}
-
-    if (num < den)
-    {
-        quo = 0;
-        return;
-    }
-    if(num == den)
-    {
-        quo = 1;
-        return;
-    }
-    quo = 0;
-    rem = num;
-
-    uint min = 0,
-         max = num;
-
-    while (rem >= den)
-    {
-        uint number = (max + min) >> 1;
-        int  posRem = num - den * number;
-        if(posRem < 0)
-            max = number - 1;
-        else if(uint(posRem) >= den)
-            min = number + 1;
-        else {
-            quo = number;
-            rem = uint(posRem);
-            return;
-        }
-        // Old school:)
-        rem -= den;
-        ++quo;
-    }
+	return 1; // if all hurdles/checks are crossed, heyyyy, its a prime
 }
 
 int main()
 {
-	cout << "hi thersdssfsfsfsffsd" << endl;
-
-	int i1 = 70;
-	int i2 = 15;
-	unsigned int q;
-	unsigned int r;
-
-
-	divideAndConquer(i1, i2, q);
-
-	cout << q << " ... "  << endl;
-
+int num;
+do {
+cout << " enter a number (0 to stop) " << endl;
+cin >> num;
+if (num) {
+if (isPrime(num))
+cout << num << " is a prime numebr " << endl;
+else
+cout << num << " is NOT a prime numebr " << endl;
 }
+} while (num > 0);
+
+return 0;
+}
+
+

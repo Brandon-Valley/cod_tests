@@ -35,7 +35,7 @@ void divideAndConquer(const uint num_str, const uint den_str, uint& quo_str)
 
         int  posRem = num_str - den_str * half;
 
-        cout << "  posRem: " << posRem << "  den_str: " << den_str << "  half: " << half << "  num_str: " << num_str << endl;
+        cout << "  posRem: " << posRem << "  den_str: " << den_str << "  half: " << half << "  num_str: " << num_str << " quo_str: " << quo_str << endl;
         if(posRem < 0)
         {
 //        	cout << "   posRem < 0" << endl;//`````````````````````
