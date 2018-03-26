@@ -1,12 +1,29 @@
-// CPP program to check if two
-// numbers are co-prime or not
-#include<bits/stdc++.h>
+#include <iostream>
+#define MOD 1000000007
 using namespace std;
 
 
+#include <stdio.h>      /* printf */
+#include <math.h>       /* pow */
 
-// driver code
+int my_pow(int b, int p)
+{
+	int result;
+	int i = 0;
+	while( i <= p)
+	{
+		result = b * b;
+		i++;
+	}
+
+	return result;
+}
+
 int main()
 {
-	cout << "hi4" << endl;
+	int a = -10;
+	int pwr = 4;
+	cout << pow(a, pwr) << endl;
+	cout << my_pow(a, pwr) << endl;
+
 }
