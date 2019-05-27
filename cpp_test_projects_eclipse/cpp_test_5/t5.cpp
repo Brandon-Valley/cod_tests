@@ -1,37 +1,28 @@
-// CPP program to check if two
-// numbers are co-prime or not
-#include<bits/stdc++.h>
+//              10
+//      ||--------------||
+//       6               8
+//  ||------||      ||------||
+//   2       4       3       6
+//||--||  ||--||  ||--||  ||--||
+// 0   1   3   2   2   1   0   2
+
+#include<iostream>
+#include<vector>
+#include<sstream>
+#include<string>
+#include<cmath>
+#include<iomanip>
 using namespace std;
 
-//#include <list>
-#include <iostream>
-#include <iterator>
 
-using std::list;
-
-template<typename T>
-void some_function(std::vector<T> & vect){cout << vect.empty() << endl;}
-
-//template<typename T>
-list<int> get_list()
+int main()
 {
-	list<int> new_list;
-	new_list.push_back(5);
-	return new_list;
+	float a = 0.3;
+	int b = 1;
+	if (b>a)
+		cout << "b<a" << endl;
+
 }
 
 
 
-
-int main( )
-{
-//	std::vector<int> v1;
-//	some_function(v1);
-//	std::vector<string> v2;
-//	some_function(v2);
-
-	list<int> l1;
-
-	l1 = get_list();
-	cout << l1.front() << endl;
-}

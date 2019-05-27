@@ -1,29 +1,66 @@
-#include <iostream>
-#define MOD 1000000007
-using namespace std;
+// C program for insertion sort
+#include <stdio.h>
+#include <math.h>
 
 
-#include <stdio.h>      /* printf */
-#include <math.h>       /* pow */
 
-int my_pow(int b, int p)
+
+//#include <ctime>
+//
+//void f() {
+//  using namespace std;
+//  clock_t begin = clock();
+//
+//  code_to_time();
+//
+//  clock_t end = clock();
+//  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+//}
+
+
+
+
+
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)
 {
-	int result;
-	int i = 0;
-	while( i <= p)
-	{
-		result = b * b;
-		i++;
-	}
+   int i, key, j;
+   for (i = 1; i < n; i++)
+   {
+       key = arr[i];
+       j = i-1;
 
-	return result;
+       /* Move elements of arr[0..i-1], that are
+          greater than key, to one position ahead
+          of their current position */
+       while (j >= 0 && arr[j] > key)
+       {
+           arr[j+1] = arr[j];
+           j = j-1;
+       }
+       arr[j+1] = key;
+   }
 }
 
+// A utility function to print an array of size n
+void printArray(int arr[], int n)
+{
+   int i;
+   for (i=0; i < n; i++)
+       printf("%d ", arr[i]);
+   printf("\n");
+}
+
+
+
+/* Driver program to test insertion sort */
 int main()
 {
-	int a = -10;
-	int pwr = 4;
-	cout << pow(a, pwr) << endl;
-	cout << my_pow(a, pwr) << endl;
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr)/sizeof(arr[0]);
 
+    insertionSort(arr, n);
+    printArray(arr, n);
+
+    return 0;
 }

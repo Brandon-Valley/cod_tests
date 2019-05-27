@@ -1,53 +1,55 @@
-#include <iostream>
-
-using namespace std;
-//using namespace system;
-
+/*
+Insertion sort
+*/
 
 #include <iostream>
-
 using namespace std;
-//using namespace system;
 
-
-int isPrime(long num) // Returns 1 (true) if its prime, or 0 (false) if not
+template <typename T>
+void printarray(T arg[], int length)
 {
-	if (num < 2) // 1 is not a prime number
-		return 0;
+    for(int n = 0; n < length; ++n)
+        cout << arg[n] << ' ';
 
-	// if it is > 2 and an even number, then it definitely is not a prime
-	if (num > 2 && (num % 2) == 0)
-		return 0;
+    cout << endl;
+}
 
-	//considering the fact all can be divided by 1 and itself,
-	//start checking if there is any other divisor, if found one then no need to continue, it is not a prime
-	for(int i = 2; i < num; i++ )
-	{
-		cout << " divisor: " << i << endl;
-		if ( (num % i) == 0) // if it is divisible by i
-		{
-			// a divisor other than 1 and the number itself
-			return 0; // no need for further checking
-		}
-	}
-	return 1; // if all hurdles/checks are crossed, heyyyy, its a prime
+//
+//template <typename T>
+//int Input(T A[], int n)
+//{
+//	int a[] =
+//
+//    return n;
+//}
+
+
+template <typename T>
+void ISort(T A[], int n)
+{
+    int I, J;
+
+    for(I = 1; I < n; I++) //sorting
+    {
+        J = I;
+
+        while((A[J] > A[J - 1]) && (J > 0))
+        {
+            swap(A[J], A[J--]);
+        }
+    }
 }
 
 int main()
 {
-int num;
-do {
-cout << " enter a number (0 to stop) " << endl;
-cin >> num;
-if (num) {
-if (isPrime(num))
-cout << num << " is a prime numebr " << endl;
-else
-cout << num << " is NOT a prime numebr " << endl;
+    int firstarray[] = {3000000,6,3,-22,5,6,1000};
+//    Input(firstarray, 7);
+    cout << "before sort: ";
+    printarray(firstarray, 7);
+
+    ISort(firstarray, 7);
+    cout << "after sort: ";
+    printarray(firstarray, 7);
+
+    return 0;
 }
-} while (num > 0);
-
-return 0;
-}
-
-
